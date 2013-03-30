@@ -1,0 +1,30 @@
+﻿<div id="body">
+    <div class="left-section" style="height: 600px; width: 25%; float: left; background-color: #b9b9b9">
+        <h2>Blogs</h2>
+        <button data-bind="click: newBlog">New Blog</button>
+        <button id="saveAll">Save</button>
+
+        <ul data-bind="foreach: blogs">
+            <li style="list-style: none">
+                <a data-bind="text: Title, id: Id" href="#"></a>
+                <input type="button" value="Select" data-bind="click: $parent.selectBlog" />
+            </li>
+        </ul>
+    </div>
+    <div class="right-section" style="height: 600px; width: 75%; float: left; background-color: #d9d9d9" 
+        data-bind="with: selectedBlog">
+        <div>
+            Title:
+            <input data-bind="value: Title" />
+        </div>
+        <div>
+            Post:
+            <textarea data-bind="value: Post" ></textarea>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/knockout-2.2.0.js"></script>
+    <script src="~/Scripts/ko-blog.js"></script>
+}
